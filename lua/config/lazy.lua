@@ -21,10 +21,60 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
     {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require('kanagawa').setup({})
-    end,
+      "rebelot/kanagawa.nvim",
+      config = function()
+        require("kanagawa").setup({
+          -- You can customize the theme settings here
+        })
+        vim.cmd.colorscheme("kanagawa")
+      end,
+    },
+    {
+      "nvim-lualine/lualine.nvim",
+      opts = {
+        options = {
+          theme = {
+            normal = {
+              a = { fg = "#ffffff", bg = "#d7af5f", gui = "bold" },
+              b = { fg = "#ffffff", bg = "#444444" },
+              c = { fg = "#ffffff", bg = "#303030" },
+            },
+            insert = {
+              a = { fg = "#ffffff", bg = "#87af5f", gui = "bold" },
+              b = { fg = "#ffffff", bg = "#444444" },
+              c = { fg = "#ffffff", bg = "#303030" },
+            },
+            visual = {
+              a = { fg = "#ffffff", bg = "#af5f87", gui = "bold" },
+              b = { fg = "#ffffff", bg = "#444444" },
+              c = { fg = "#ffffff", bg = "#303030" },
+            },
+            replace = {
+              a = { fg = "#ffffff", bg = "#af5f5f", gui = "bold" },
+              b = { fg = "#ffffff", bg = "#444444" },
+              c = { fg = "#ffffff", bg = "#303030" },
+            },
+            command = {
+              a = { fg = "#ffffff", bg = "#5f87af", gui = "bold" },
+              b = { fg = "#ffffff", bg = "#444444" },
+              c = { fg = "#ffffff", bg = "#303030" },
+            },
+            inactive = {
+              a = { fg = "#aaaaaa", bg = "#303030" },
+              b = { fg = "#aaaaaa", bg = "#303030" },
+              c = { fg = "#aaaaaa", bg = "#303030" },
+            },
+          },
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = { "branch" },
+          lualine_c = { "filename" },
+          lualine_x = { "encoding", "fileformat", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
+        },
+      },
     },
   },
   defaults = {
@@ -36,7 +86,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  -- install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
