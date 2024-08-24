@@ -76,6 +76,20 @@ require("lazy").setup({
         },
       },
     },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      config = function()
+        require("neo-tree").setup({
+          filesystem = {
+            filtered_items = {
+              hide_dotfiles = false, -- Show other dotfiles
+              hide_gitignored = false, -- Show files ignored by .gitignore
+              hide_by_name = { ".git" }, -- Hide only the .git folder
+            },
+          },
+        })
+      end,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
