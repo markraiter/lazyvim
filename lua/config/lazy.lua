@@ -77,6 +77,16 @@ require("lazy").setup({
       },
     },
     {
+      "neovim/nvim-lspconfig",
+      opts = {
+        setup = {
+          rust_analyzer = function()
+            return true -- Prevent nvim-lspconfig from setting up rust_analyzer
+          end,
+        },
+      },
+    },
+    {
       "nvim-neo-tree/neo-tree.nvim",
       config = function()
         require("neo-tree").setup({
