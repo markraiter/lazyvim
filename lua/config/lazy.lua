@@ -20,13 +20,29 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
+    -- {
+    --   "rebelot/kanagawa.nvim",
+    --   config = function()
+    --     require("kanagawa").setup({
+    --       -- You can customize the theme settings here
+    --     })
+    --     vim.cmd.colorscheme("kanagawa")
+    --   end,
+    -- },
     {
-      "rebelot/kanagawa.nvim",
+      "projekt0n/github-nvim-theme",
       config = function()
-        require("kanagawa").setup({
-          -- You can customize the theme settings here
+        require("github-theme").setup({
+          -- Дополнительные настройки для темы можно добавить здесь
         })
-        vim.cmd.colorscheme("kanagawa")
+        vim.cmd.colorscheme("github_dark_default") -- Активируем GitHub Dark Default тему
+
+        -- Настройка lualine для использования темы GitHub
+        require("lualine").setup({
+          options = {
+            theme = "auto", -- Устанавливаем тему lualine в стиле GitHub
+          },
+        })
       end,
     },
     {
